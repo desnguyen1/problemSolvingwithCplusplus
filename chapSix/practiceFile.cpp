@@ -8,19 +8,21 @@ int main(){
     int a[10], testVar;
 
     inFile.open("test.txt");
-    if(inFile.fail()){
+    outFile.open("outFile.txt");
+    if(inFile.fail() || outFile.fail()){
         std::cout<<"\nError opening the file";
     }
     else{
         std::cout<<"\nSuccess!";
     }
     for(int i = 0; i < 10; i++){
-        inFile >> testVar;
-        std::cout<<"\nTest var: "<<testVar<<std::endl;
         inFile >> a[i];
-        std::cout<<"\n"<<a[i]<<std::endl;
-    }
-   
+        std::cout<<"\n"<<a[i];
 
+        //ouput
+        outFile << "\nNumber: "<<a[i];
+    }
+
+    std::cout<<std::endl;
     return 0;
 }
